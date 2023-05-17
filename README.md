@@ -1,5 +1,6 @@
 ## Project Description
 This project consists of a client-server system where the client sends a camera snapshot to the server using gRPC. The server saves the image and displays it. The client captures an image using the computer's camera, converts it to bytes, and sends it to the server. The server receives the image, saves it to disk, opens it, and displays it using the PIL library.
+upd:added server docker file with propper depences
 
 ## Dependencies
 The following dependencies are required to run the project:
