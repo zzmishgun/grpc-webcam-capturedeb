@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message ImageRequest {
+  bytes image_data = 1;
+}
+
+message ImageResponse {
+  string status = 1;
+}
+
+service ImageService {
+  rpc SaveImage (ImageRequest) returns (ImageResponse);
+}

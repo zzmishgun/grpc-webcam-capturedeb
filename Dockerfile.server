@@ -1,0 +1,21 @@
+# Base image
+FROM python:3.9-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy server code and proto files
+COPY server.py .
+COPY image.proto .
+
+# Install dependencies
+RUN pip install grpcio grpcio-tools pillow
+
+# Generate gRPC code
+RUN python -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. image.proto
+
+# Expose the port used by the server
+EXPOSE 50051
+
+# Command to run the server
+CMD [ "python", "server.py" ]
